@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install CMake
       run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
     - name: Install Perl (for OpenSSL)
@@ -19,9 +19,8 @@ jobs:
       run: dir build\Release
       continue-on-error: true
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: coreminer-windows
         path: build/Release/coreminer.exe
-      if: success()
-      
+      continue-on-error: true
