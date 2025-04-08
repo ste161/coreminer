@@ -20,8 +20,8 @@ jobs:
         curl -L https://github.com/cpp-pm/Hunter/archive/v0.25.5.tar.gz -o hunter.tar.gz
         tar -xzf hunter.tar.gz --strip-components=1
         cd ..
-    - name: Configure CMake with Hunter
-      run: cmake -S coreminer -B build -G "Visual Studio 17 2022" -A x64 -DHUNTER_ROOT=./hunter
+    - name: Configure CMake
+      run: cmake -S coreminer -B build -G "Visual Studio 17 2022" -A x64
     - name: Build
       run: cmake --build build --config Release
     - name: Check Build Output
