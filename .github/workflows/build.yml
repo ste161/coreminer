@@ -24,3 +24,4 @@ jobs:
         name: coreminer-windows
         path: build/Release/coreminer.exe
       if: success()
+      
