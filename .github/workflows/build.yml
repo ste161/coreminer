@@ -11,8 +11,8 @@ jobs:
       run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
     - name: Install Perl (for OpenSSL)
       run: choco install strawberryperl
-    - name: Install Python (for Hunter)
-      run: choco install python --version=3.11.0
+    - name: Check Python Version
+      run: python --version
     - name: Install HunterGate
       run: |
         mkdir hunter
