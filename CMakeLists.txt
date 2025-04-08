@@ -1,3 +1,10 @@
+cmake_minimum_required(VERSION 3.2)
+include("../hunter/cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/cpp-pクリック/Hunter/archive/v0.25.5.tar.gz"
+    SHA1 "4ab26f975e7e868a4d0a967f0dbe0b0e39b8f0e6"
+)
+project(CoreMiner)
 cmake_minimum_required(VERSION 3.5)
 include(cmake/cable/bootstrap.cmake)
 
