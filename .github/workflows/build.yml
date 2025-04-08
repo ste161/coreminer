@@ -9,12 +9,18 @@ jobs:
     - uses: actions/checkout@v3
     - name: Install CMake
       run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+    - name: Install Perl (for OpenSSL)
+      run: choco install strawberryperl
     - name: Configure CMake
-      run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+      run: cmake -S coreminer -B build -G "Visual Studio 17 2022" -A x64
     - name: Build
       run: cmake --build build --config Release
+    - name: Check Build Output
+      run: dir build\Release
+      continue-on-error: true
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: coreminer-windows
         path: build/Release/coreminer.exe
+      if: success()
